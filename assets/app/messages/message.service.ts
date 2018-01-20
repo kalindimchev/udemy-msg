@@ -24,7 +24,7 @@ export class MessageService {
             'Content-Type': 'application/json'
         });
         
-        return this.http.post('http://udemy-msg.herokuapp.com/message' + this.getToken(), body, {headers: headers})
+        return this.http.post('https://udemy-msg.herokuapp.com/message' + this.getToken(), body, {headers: headers})
             .map((response: Response) => {
                 const result = response.json();
                 const message = new Message(result.obj.content, 
@@ -44,7 +44,7 @@ export class MessageService {
     }
 
     getMessages() {
-        return this.http.get('http://udemy-msg.herokuapp.com/message')
+        return this.http.get('https://udemy-msg.herokuapp.com/message')
             .map((response: Response) => {
                 const messages = response.json().obj;
                 console.log(messages);
@@ -77,7 +77,7 @@ export class MessageService {
             'Content-Type': 'application/json'
         });
 
-        return this.http.patch('http://udemy-msg.herokuapp.com/message/' + message.messageId + this.getToken(), body, {headers: headers})
+        return this.http.patch('https://udemy-msg.herokuapp.com/message/' + message.messageId + this.getToken(), body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 this.errorService.handleError(error.json());
@@ -89,7 +89,7 @@ export class MessageService {
     deleteMessage(message: Message) {
         this.messages.splice(this.messages.indexOf(message), 1);
 
-        return this.http.delete('http://udemy-msg.herokuapp.com/message/' + message.messageId + this.getToken())
+        return this.http.delete('https://udemy-msg.herokuapp.com/message/' + message.messageId + this.getToken())
             .map((response: Response) => {
                 return response.json();
             })

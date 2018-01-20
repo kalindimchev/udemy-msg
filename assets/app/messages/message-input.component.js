@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { NgForm } from "@angular/forms";
+import { Component } from "@angular/core";
 import { MessageService } from "./message.service";
 import { Message } from "./message.model";
 var MessageInputComponent = /** @class */ (function () {

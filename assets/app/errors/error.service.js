@@ -1,7 +1,6 @@
 import { Injectable, EventEmitter } from "@angular/core";
-import { Http, Response, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import { Error } from "./error.model";
-import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
 var ErrorService = /** @class */ (function () {
     function ErrorService(http) {

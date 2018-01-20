@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from "@angular/router";
+import { RouterModule } from "@angular/router";
 import { MessagesComponent } from "./messages/messages.component";
 import { AuthenticationComponent } from "./auth/authentication.component";
 var APP_ROUTES = [

@@ -1,6 +1,5 @@
-import { Injectable, EventEmitter } from "@angular/core";
-import { Http, Response, Headers } from '@angular/http';
-import { User } from "./user.model";
+import { Injectable } from "@angular/core";
+import { Http, Headers } from '@angular/http';
 import { ErrorService } from '../errors/error.service';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';

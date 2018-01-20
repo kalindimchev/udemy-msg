@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from "@angular/core";
-import { Http, Response, Headers } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Message } from "./message.model";
 import { Observable } from 'rxjs/Rx';
 import { ErrorService } from '../errors/error.service';
@@ -20,7 +20,7 @@ var MessageService = /** @class */ (function () {
         var headers = new Headers({
             'Content-Type': 'application/json'
         });
-        return this.http.post('http://localhost:3000/message' + this.getToken(), body, { headers: headers })
+        return this.http.post('http://udemy-msg.herokuapp.com/message' + this.getToken(), body, { headers: headers })
             .map(function (response) {
             var result = response.json();
             var message = new Message(result.obj.content, result.obj.user.firstName, result.obj._id, result.obj.user._id);
@@ -34,7 +34,7 @@ var MessageService = /** @class */ (function () {
     };
     MessageService.prototype.getMessages = function () {
         var _this = this;
-        return this.http.get('http://localhost:3000/message')
+        return this.http.get('http://udemy-msg.herokuapp.com/message')
             .map(function (response) {
             var messages = response.json().obj;
             console.log(messages);
@@ -60,7 +60,7 @@ var MessageService = /** @class */ (function () {
         var headers = new Headers({
             'Content-Type': 'application/json'
         });
-        return this.http.patch('http://localhost:3000/message/' + message.messageId + this.getToken(), body, { headers: headers })
+        return this.http.patch('http://udemy-msg.herokuapp.com/message/' + message.messageId + this.getToken(), body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             _this.errorService.handleError(error.json());
@@ -70,7 +70,7 @@ var MessageService = /** @class */ (function () {
     MessageService.prototype.deleteMessage = function (message) {
         var _this = this;
         this.messages.splice(this.messages.indexOf(message), 1);
-        return this.http.delete('http://localhost:3000/message/' + message.messageId + this.getToken())
+        return this.http.delete('http://udemy-msg.herokuapp.com/message/' + message.messageId + this.getToken())
             .map(function (response) {
             return response.json();
         })

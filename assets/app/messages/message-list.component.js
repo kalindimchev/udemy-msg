@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { Message } from "./message.model";
+import { Component } from "@angular/core";
 import { MessageService } from "./message.service";
 var MessageListComponent = /** @class */ (function () {
     function MessageListComponent(messageService) {

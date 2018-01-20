@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { Error } from "./error.model";
+import { Component } from "@angular/core";
 import { ErrorService } from "./error.service";
 var ErrorComponent = /** @class */ (function () {
     function ErrorComponent(errorService) {
